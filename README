@@ -2,9 +2,3 @@ tinkertytonk/dotfiles:
 ======================
 
   My collection of config files.  Duh.
-
-  Below is the list of dependencies (if any) on per-file basis:
-
-  * .vimrc
-    - requires airline plugin:  https://github.com/bling/vim-airline
-    - requires euphrasia colorscheme:  included here in .vim/colors/
