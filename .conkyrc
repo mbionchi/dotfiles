@@ -1,0 +1,36 @@
+alignment top_left
+background yes
+gap_x 0
+gap_y 750
+minimum_size 1366 12
+maximum_width 1366
+
+update_interval 1
+total_run_times 0
+double_buffer yes
+
+cpu_avg_samples 2
+net_avg_samples 2
+
+use_xft yes
+xftfont dejavu sans mono:size=8
+xftalpha 0.5
+override_utf8_locale yes
+
+own_window yes
+own_window_type desktop
+own_window_transparent no
+own_window_colour 090C19
+own_window_argb_visual yes
+own_window_argb_value 200
+own_window_hints above,undecorated,sticky,skip_taskbar,skip_pager
+
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders no
+
+default_color 86b5ea
+
+TEXT
+${alignc}${color #7a999c}[ up${color} ${uptime_short} ${color #7a999c}| load${color} ${loadavg} ${color #7a999c}| temp:${color} ${execi 60 sensors acpitz-virtual-0 | sed '3p;d' | awk '{print $2}'} ${color #7a999c}| mem${color} ${memperc}% ${color #7a999c}| /${color} ${fs_used /}/${fs_size /} ${color #7a999c}| /home${color} ${fs_used /home}/${fs_size /home} ${color #7a999c}| wlan dl${color} ${downspeed wlp3s0}, ${totaldown wlp3s0}${color #7a999c} up${color} ${upspeed wlp3s0}, ${totalup wlp3s0} ${color #7a999c}| eth dl${color} ${downspeed enp0s25}, ${totaldown enp0s25}${color #7a999c} up${color} ${upspeed enp0s25}, ${totalup enp0s25} ${color #7a999c}]${color}

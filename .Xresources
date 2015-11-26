@@ -1,0 +1,46 @@
+URxvt*font:             xft:dejavu sans mono:size=8
+URxvt*scrollstyle:      rxvt
+URxvt*scrollBar:        false
+URxvt*cursorBlink:      true
+URxvt*termName:         rxvt-256color
+URxvt*depth:            32
+
+URxvt*background:  [85]#090C19
+URxvt*foreground:  #E6E6E6
+URxvt*cursorColor: #E6E6E6
+
+*background: #D0CECB
+*foreground: #090C19
+
+! black
+*color0:  #222946
+! dark grey
+*color8:  #8C8B89
+! red
+*color1:  #BE1919
+! bright red
+*color9:  #DC2F32 
+! green
+*color2:  #1AAA13
+! bright green
+*color10: #5DCE33
+! yellow
+*color3:  #FFAA3E
+! bright yellow
+*color11: #FADD2D
+! blue
+*color4:  #3A57D7
+! bright blue
+*color12: #507CFF
+! magenta
+*color5:  #BE007F
+! bright magenta
+*color13: #E671D3
+! cyan
+*color6:  #258F8F
+! bright cyan
+*color14: #4DC5DC
+! light grey
+*color7:  #AEAEAE
+! white
+*color15: #DBDDE4

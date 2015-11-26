@@ -1,0 +1,10 @@
+startup_message off
+
+bind j focus down
+bind k focus up
+bind t focus top
+bind b focus bottom
+
+hardstatus on
+hardstatus alwayslastline
+hardstatus string '%{= g}[ %{= C}%H %{= g}] [%= %?%{= w}%-Lw%?%{=b G}%n*%f%t%?(%u)%?%?%{= w}%+Lw%?%?%=%{= g}] [ %{M}%l %{= g}] [ %{= C}%c %{= g}]'

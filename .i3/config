@@ -1,0 +1,159 @@
+set $lalt Mod1
+set $ralt Mod3
+
+font pango:DejaVu Sans Mono 8
+
+floating_modifier $lalt
+
+new_window pixel 2
+new_float pixel 2
+
+mouse_warping none
+focus_follows_mouse no
+
+popup_during_fullscreen smart
+
+force_display_urgency_hint 1000 ms
+
+
+# class                 border  backgr. text    indicator
+client.focused          #4c7899 #285577 #ffffff #2e9ef4
+client.focused_inactive #333333 #5f676a #ffffff #484e50
+client.unfocused        #333333 #222222 #888888 #292d2e
+client.urgent           #2f343a #900000 #ffffff #900000
+
+#client.background color
+
+bindcode $lalt+49 scratchpad show
+bindcode $lalt+9 scratchpad show
+bindcode $lalt+Shift+49 move scratchpad
+bindcode $lalt+Shift+9 move scratchpad
+for_window [instance="scratchpad" class="URxvt"] move scratchpad, resize grow left 359, resize grow right 359, resize grow up 214, resize shrink down 162
+
+for_window [class="Psi+"] floating disable
+
+workspace 1:web output LVDS1
+workspace 2:mail output LVDS1
+workspace 3:dev0 output LVDS1
+workspace 4:dev1 output LVDS1
+workspace 5:dev2 output LVDS1
+workspace 6:dev3 output LVDS1
+workspace 7:dev4 output LVDS1
+workspace 8:read output LVDS1
+workspace 9:mus output LVDS1
+workspace 10:mov output LVDS1
+workspace 11:im output LVDS1
+workspace 12:uni output LVDS1
+workspace 13:junk output LVDS1
+
+bindcode $lalt+10 workspace 1:web
+bindcode $lalt+11 workspace 2:mail
+bindcode $lalt+12 workspace 3:dev0
+bindcode $lalt+13 workspace 4:dev1
+bindcode $lalt+14 workspace 5:dev2
+bindcode $lalt+15 workspace 6:dev3
+bindcode $lalt+16 workspace 7:dev4
+bindcode $lalt+17 workspace 8:read
+bindcode $lalt+18 workspace 9:mus
+bindcode $lalt+19 workspace 10:mov
+bindcode $lalt+20 workspace 11:im
+bindcode $lalt+21 workspace 12:uni
+bindcode $lalt+132 workspace 13:junk
+
+bindcode $lalt+Shift+10 move container to workspace 1:web
+bindcode $lalt+Shift+11 move container to workspace 2:mail
+bindcode $lalt+Shift+12 move container to workspace 3:dev0
+bindcode $lalt+Shift+13 move container to workspace 4:dev1
+bindcode $lalt+Shift+14 move container to workspace 5:dev2
+bindcode $lalt+Shift+15 move container to workspace 6:dev3
+bindcode $lalt+Shift+16 move container to workspace 7:dev4
+bindcode $lalt+Shift+17 move container to workspace 8:read
+bindcode $lalt+Shift+18 move container to workspace 9:mus
+bindcode $lalt+Shift+19 move container to workspace 10:mov
+bindcode $lalt+Shift+20 move container to workspace 11:im
+bindcode $lalt+Shift+21 move container to workspace 12:uni
+bindcode $lalt+Shift+132 move container to workspace 13:junk
+
+workspace 0:vga output VGA1
+bindcode $ralt+10 workspace 0:vga
+bindcode $ralt+Shift+10 move container to workspace 0:vga
+
+bindcode $lalt+36 exec urxvtc
+bindcode $lalt+Shift+36 exec urxvtc -tn xterm
+bindcode $lalt+40 exec dmenu_run
+bindcode $lalt+53 exec i3lock -i .bg_lock.png
+
+bindcode $lalt+Shift+24 kill
+
+bindcode $lalt+43 focus left
+bindcode $lalt+44 focus down
+bindcode $lalt+45 focus up
+bindcode $lalt+46 focus right
+
+bindcode $lalt+Shift+43 move left
+bindcode $lalt+Shift+44 move down
+bindcode $lalt+Shift+45 move up
+bindcode $lalt+Shift+46 move right
+
+bindcode $lalt+56 split h
+bindcode $lalt+55 split v
+
+bindcode $lalt+41 fullscreen
+
+bindcode $lalt+39 layout stacking
+bindcode $lalt+25 layout tabbed
+bindcode $lalt+26 layout toggle split
+
+bindcode $lalt+65 focus mode_toggle
+bindcode $lalt+Shift+65 floating toggle
+
+bindcode $lalt+38 focus parent
+bindcode $lalt+54 focus child
+
+bindcode $lalt+Shift+54 reload
+bindcode $lalt+Shift+27 restart
+bindcode $lalt+Shift+26 exec "i3-nagbar -t warning -m 'quit?' -b 'yeah' 'i3-msg exit'"
+
+bindsym XF86AudioRaiseVolume exec amixer -c PCH sset Master 3%+
+bindsym XF86AudioLowerVolume exec amixer -c PCH sset Master 3%-
+bindsym XF86AudioMute exec amixer -c PCH sset Master toggle
+bindsym XF86AudioMicMute exec amixer -c PCH sset Capture toggle
+bindsym XF86AudioPrev exec mpc prev
+bindsym XF86AudioPlay exec mpc toggle
+bindsym XF86AudioNext exec mpc next
+bindsym XF86ScreenSaver exec i3lock -i .bg_lock.png
+bindsym XF86Display exec ~/bin/vga1script.sh
+
+mode "resize" {
+    bindcode 43 resize shrink width 10 px or 10 ppt
+    bindcode 44 resize grow height 10 px or 10 ppt
+    bindcode 45 resize shrink height 10 px or 10 ppt
+    bindcode 46 resize grow width 10 px or 10 ppt
+
+    bindcode 36 mode "default"
+    bindcode 9  mode "default"
+}
+
+bindcode $lalt+27 mode "resize"
+
+bar {
+    status_command ~/.i3/conkywrap.sh
+    position top
+    output LVDS1
+    font pango:DejaVu Sans Mono 8
+    workspace_buttons yes
+    strip_workspace_numbers yes
+    colors {
+        background #000000
+        statusline #ffffff
+        separator #666666
+
+        focused_workspace  #4c7899 #285577 #ffffff
+        active_workspace   #333333 #5f676a #ffffff
+        inactive_workspace #333333 #222222 #888888
+        urgent_workspace   #2f343a #900000 #ffffff
+    }
+}
+
+exec ~/.i3/exec.sh
+exec_always ~/.i3/exec_always.sh

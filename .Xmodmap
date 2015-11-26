@@ -1,0 +1,7 @@
+remove Mod1 = Alt_R
+add Mod3 = Alt_R
+keycode 100 = Num_Lock NoSymbol Num_Lock
+keycode 111 = Up
+keycode 113 = Left
+keycode 114 = Right
+keycode 116 = Down

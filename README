@@ -1,4 +1,31 @@
-tinkertytonk/dotfiles:
-======================
+mbionchi/dotfiles:
+==================
 
   My collection of config files.  Duh.
+
+  Use at your own risk -- you'll probably need to tweak some of them
+according to your system.
+
+  Below is the list of dependencies (if any) on per-file basis:
+
+  * .vimrc
+      - requires airline plugin: https://github.com/bling/vim-airline
+      - requires euphrasia colorscheme: included here in .vim/colors/
+
+  * .i3/exec.sh
+      - requires all of the following: conky, urxvt, lm_sensors,
+        nm-applet (from NetworkManager), openssh, mpd
+
+  * .i3/exec_always.sh
+      - requires: xmodmap, .fehbg.sh (from this repo), compton
+
+  * .i3/config
+      - requires alsa-tools, dmenu, urxvt, i3lock, i3bar, mpc, 
+        as well as 2 monitors and extra keyboard keys found on japanese
+        thinkpad keyboards and probably something else :)
+
+  * .fehbg.sh
+      - requires feh (duh) and a '.bg.png' file in the home directory
+
+  * .Xmodmap
+      - you should be able to guess this one...
