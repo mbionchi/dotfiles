@@ -6,7 +6,7 @@ mbionchi/dotfiles:
   Use at your own risk -- you'll probably need to tweak some of them
 according to your system.
 
-  Below is the list of dependencies (if any) on per-file basis:
+  Below is the list of dependencies/comments (if any) on per-file basis:
 
   * .vimrc
       - requires airline plugin: https://github.com/bling/vim-airline
