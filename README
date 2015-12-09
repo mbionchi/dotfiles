@@ -29,3 +29,7 @@ according to your system.
 
   * .Xmodmap
       - you should be able to guess this one...
+
+  * .conkyrc:
+      - this version produces JSON output needed for the i3bar.  To be
+      used with .i3/conkywrap.sh
