@@ -3,5 +3,5 @@
 urxvt -name scratchpad &
 urxvtd &
 mpd &
-dbus-launch nm-applet &
 ssh-add ~/.ssh/git_rsa &
+redshift -l 40.7127:-74.0059 & #NYC

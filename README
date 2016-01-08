@@ -14,7 +14,7 @@ according to your system.
 
   * .i3/exec.sh
       - requires all of the following: conky, urxvt, lm_sensors,
-        nm-applet (from NetworkManager), openssh, mpd
+        nm-applet (from NetworkManager), openssh, mpd, redshift
 
   * .i3/exec_always.sh
       - requires: xmodmap, .fehbg.sh (from this repo), compton
