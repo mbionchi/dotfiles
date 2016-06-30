@@ -1,5 +1,7 @@
 [ -z "$PS1" ] && return
 
+. /etc/profile
+
 if [ "$TERM" = "linux" ]; then
     echo -en "\e]P0000000" #black
     echo -en "\e]P88C8B89" #darkgrey
@@ -20,9 +22,32 @@ if [ "$TERM" = "linux" ]; then
     clear # default input colours
 fi
 
-PATH="~/bin:$PATH"
-
 set -o vi
 
 alias emacs='emacs -nw'
 alias f='figlet'
+
+PATH="~/bin:/opt/bin/:$PATH"
+
+function get_git_branch() {
+    git branch &>/dev/null;
+    case $? in
+        0)
+            branch_name=`git status | sed 1q | awk '{print $3}'`;
+            git status | grep "nothing to commit" &>/dev/null;
+            case $? in
+                0)
+                    echo -n $'\033[0;32m'{$branch_name}" "
+                    ;;
+                *)
+                    echo -n $'\033[0;31m'{$branch_name}" "
+                    ;;
+            esac
+            ;;
+        *)
+            echo ""
+            ;;
+    esac
+}
+
+export PS1='\[\033[01;32m\][\u@\h]\[\033[01;34m\] \w $(get_git_branch)\[\033[01;34m\]\$\[\033[00m\] '
